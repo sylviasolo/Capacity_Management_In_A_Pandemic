@@ -1,0 +1,2277 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    120949,       2269]
+NotebookOptionsPosition[    113965,       2186]
+NotebookOutlinePosition[    114361,       2202]
+CellTagsIndexPosition[    114318,       2199]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\[IndentingNewLine]",
+   FontSize->18], 
+  StyleBox["\[IndentingNewLine]",
+   FontSize->18], 
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     RowBox[{"mylist", " ", "=", " ", 
+      RowBox[{"{", "}"}]}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"parameters", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\[Lambda]", "=", "2"}], ",", 
+        RowBox[{"Pc1", "=", 
+         FractionBox["2", "5"]}], ",", 
+        RowBox[{"Pc2", "=", 
+         FractionBox["47", "100"]}], ",", 
+        RowBox[{"Pc3", "=", 
+         FractionBox["13", "100"]}], ",", 
+        RowBox[{"r10", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"r21", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"r32", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"r12", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"r23", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"r34", "=", 
+         FractionBox["1", "10"]}], ",", 
+        RowBox[{"p", "=", 
+         FractionBox["85", "100"]}], ",", 
+        RowBox[{"Pcovid", "=", 
+         FractionBox["85", "100"]}], ",", 
+        RowBox[{"sc", "=", "3"}], ",", 
+        RowBox[{"IF", "=", "1"}], ",", 
+        RowBox[{"r", "=", 
+         FractionBox["1", "5"]}], ",", 
+        RowBox[{"c1", "=", 
+         FractionBox["3", "4"]}], ",", 
+        RowBox[{"c2", "=", 
+         FractionBox["2", "4"]}], ",", 
+        RowBox[{"c3", "=", 
+         FractionBox["1", "4"]}], ",", 
+        RowBox[{"f21", "=", 
+         FractionBox["1", "8"]}], ",", 
+        RowBox[{"f22", "=", 
+         FractionBox["1", "8"]}], ",", 
+        RowBox[{"f23", "=", 
+         FractionBox["1", "8"]}], ",", 
+        RowBox[{"f11", "=", 
+         FractionBox["1", "5"]}], ",", 
+        RowBox[{"f12", "=", 
+         FractionBox["1", "5"]}], ",", 
+        RowBox[{"f13", "=", 
+         FractionBox["1", "5"]}]}], "}"}]}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"M", "=", " ", "1.5"}], ";"}],
+    FontSize->18], 
+   StyleBox[" ",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      RowBox[{"(", "*"}]], 
+     RowBox[{"For", " ", "the", " ", "first", " ", "period"}], 
+     StyleBox[
+      RowBox[{"*", ")"}]]}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+       "NotebookEvaluate", "[", 
+        "\"\</Users/saeesbox/Desktop/extremepoints.nb\>\"", "]"}], " ", ",", 
+       " ", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", "1", ",", " ", "0.5"}], "}"}]}], "]"}], 
+     ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+     "Period1OptSolution", " ", "=", " ", "OptimalCombinationNumber"}], ";"}],
+    
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"t", "=", "7"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"flist", " ", "=", " ", "Feasiblelist"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Feascombs1", " ", "=", " ", "Feascombs"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"FeasibleObj1", " ", "=", " ", "FeasibleObj"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Feasiblelist1", " ", "=", " ", "Feasiblelist"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Feasqllist1", " ", "=", " ", "Feasqllist"}], ";"}],
+    FontSize->18], 
+   StyleBox[" ",
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Feasflowlist1", " ", "=", " ", "Feasflowlist"}], ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Feasprblist1", " ", "=", " ", "Feasprblist"}], ";"}],
+    FontSize->18], "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"FeasLPQlist1", " ", "=", " ", "FeasLPQlist"}], ";"}],
+    FontSize->18], "\[IndentingNewLine]", 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "j"}], ";", 
+        RowBox[{
+        "NotebookEvaluate", "[", 
+         "\"\</Users/saeesbox/Desktop/2periodfirst.nb\>\"", "]"}], " ", ";", 
+        " ", 
+        RowBox[{"mylist", " ", "=", " ", 
+         RowBox[{"Append", "[", 
+          RowBox[{"mylist", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "i", ",", " ", "sol1st", ",", " ", "sol2nd", ",", "  ", "obj1st", 
+             ",", " ", "obj2nd", ",", " ", 
+             RowBox[{"obj1st", "+", "obj2nd"}]}], "}"}]}], "]"}]}]}], ",", 
+       "  ", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{"Length", "[", "flist", "]"}]}], "}"}]}], "]"}], ";"}],
+    FontSize->18], "\[IndentingNewLine]", 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox["mylist",
+    FontSize->18], " ", "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"dat2", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "3", "]"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "4", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "5", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{"mylist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "6", "]"}], "]"}]}], " ", "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", 
+          RowBox[{"Length", "[", "mylist", "]"}]}], " ", "}"}]}], "]"}]}], 
+     ";"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"TableOfValues2", "=", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{"dat2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Index\>\"", ",", " ", "\"\< Ext pt 1st\>\"", ",", " ", 
+          "\"\<OptSol in 2nd\>\"", ",", " ", "\"\<Obj in 1st\>\"", ",", " ", 
+          "\"\<Obj in 2nd\>\"", ",", " ", "\"\<Total Obj\>\""}], "}"}]}], 
+       "]"}]}], ";"}],
+    FontSize->18], 
+   StyleBox["\n",
+    FontSize->18], 
+   StyleBox[
+    RowBox[{"Grid", "[", "TableOfValues2", "]"}],
+    FontSize->18], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->18], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.840732868020514*^9, 3.840732876528816*^9}, {
+   3.840732972319685*^9, 3.840733119628336*^9}, {3.840733167053434*^9, 
+   3.840733250403756*^9}, {3.84073348198809*^9, 3.840733498311914*^9}, {
+   3.840733529118845*^9, 3.8407335295149603`*^9}, {3.840733614843498*^9, 
+   3.840733654284605*^9}, 3.8408135659395657`*^9, {3.840815397579988*^9, 
+   3.840815397938121*^9}, {3.840816236240109*^9, 3.8408162368172626`*^9}, {
+   3.8408165632709208`*^9, 3.840816564358046*^9}, {3.8506267935908527`*^9, 
+   3.8506268007241917`*^9}, {3.8567284670036182`*^9, 3.8567284740597267`*^9}, 
+   3.8567287561472683`*^9, {3.856728920757559*^9, 3.856728930291947*^9}, {
+   3.856729250338706*^9, 3.856729275199684*^9}, {3.856729399418047*^9, 
+   3.856729410574583*^9}, {3.856730056133143*^9, 3.856730081500678*^9}, {
+   3.856730220625887*^9, 3.856730240998249*^9}, {3.8567311015895033`*^9, 
+   3.856731110101859*^9}},ExpressionUUID->"6724e6c8-90d5-4e20-81ac-\
+d4e14d4ea39b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"3\\\", \
+\\\"20\\\"]}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \
+\\\"10\\\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \
+\\\")\\\"}]}], \\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\
+\\\"}], \\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"141\\\", \\\"1000\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\
+\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\
+\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[\\\"13583\\\", \\\"20000\\\"]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"799\\\", \\\"1000\\\"], \\\"+\\\", \
+FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\
+\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}], \
+\\\"+\\\", \\\"x\[Mu]C\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"13\\\", \\\"50\\\"]}], \
+\\\"-\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\
+\"(\\\", RowBox[{FractionBox[\\\"2397\\\", \\\"20000\\\"], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", RowBox[{FractionBox[\\\"3\\\
+\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"47\\\", \\\"50\\\"], \\\"+\\\", \
+FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", FractionBox[\\\"xHN2\\\", \\\
+\"5\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"+\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.5`\\\"}], \\\"+\\\", \
+\\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 65, 2048, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730325446986*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"c66282bf-3bc2-4ec3-849a-d5be86741cbd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8000000000000002`\\\"}], \\\"-\\\", RowBox[{\\\"0.007529411764705879`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.2400000000000002`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.04705882352941177`\\\", \\\" \
+\\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2049, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730325751658*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"818e3e53-a8c1-4c22-b964-9136f729ae82"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{FractionBox[\\\"17\\\", \\\"20\\\"], \\\
+\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{FractionBox[\\\"2397\\\", \\\"20000\\\"], \\\"+\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"141\\\", \\\"1000\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{FractionBox[\\\"13583\
+\\\", \\\"20000\\\"], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \
+\\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"799\\\", \\\"1000\\\"], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", \\\"x\[Mu]C\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{FractionBox[\\\"4\\\", \\\"5\\\"], \\\"+\\\", \
+FractionBox[\\\"xH1\\\", \\\"5\\\"], \\\"-\\\", \\\"x\[Mu]HP\\\"}], \\\"\
+\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"7\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]C\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"x\[Mu]HP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"20\
+\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \\\"x\[Mu]LP\\\"}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.5`\\\"}], \\\"+\\\", \
+\\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 127, 2050, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567303261903553`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"13eb8d7b-c337-4dac-a5cf-a6ac4e063fb3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8053671308769403`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04143740750578679`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.80536713087694`\\\"}], \\\"-\\\", RowBox[{\\\"0.0414374075057868`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", RowBox[{\\\"0.06666666666666667`\\\", \
+\\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.13254456798087522`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.058983796911167584`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2051, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673032623873*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"f33324b3-b6cc-4cf1-805f-5f41be454834"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9381452734796988`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.5129834658114998`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.0884046239846927`\\\"}], \
+\\\"-\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\
+\"(\\\", RowBox[{RowBox[{\\\"0.43603594593977485`\\\", \\\"\[VeryThinSpace]\\\
+\"}], \\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"100\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.5468060014935423`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+\\\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.02874915532973611`\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2052, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730332847621*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"a8f966fb-5faa-4cb6-b87c-a39626ba4316"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.06185472652030122`\\\
+\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\
+\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03382253568204248`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.43603594593977485`\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.5129834658114998`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\
+\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP2\\\"}], \\\")\\\"}]}], \\\"+\\\", \\\"x\[Mu]C\\\"}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"7\\\", \\\"\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\
+\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 65, 2053, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673033699049*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"c1c2558a-2908-4bd6-b7d8-658fda76bf33"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9381452734796988`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.5129834658114998`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.06185472652030122`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03382253568204248`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2054, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673034137398*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"8bb7fe6c-28d1-48d7-972a-b91264795a30"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8645681974005541`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.0075294117647058826`\\\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", \
+RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.4113741988940961`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.047058823529411785`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2055, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730341438924*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"795942f1-c769-4e68-a1ad-250c694006be"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \
+\\\"xH3\\\"}], \\\"40\\\"], \\\"-\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \
+\\\"-\\\", FractionBox[\\\"xHN2\\\", \\\"10\\\"], \\\"-\\\", RowBox[{RowBox[{\
+\\\"(\\\", RowBox[{RowBox[{\\\"1.0884046239846927`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \
+\\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP3\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"1.0884046239846927`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\" \\\", \
+\\\"xPLP3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\
+\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 104, 2056, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730343619787*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"e5b2e069-ed9a-489e-92a3-4b35c9814592"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9381452734796988`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.5129834658114998`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPClinic\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \
+\\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2,
+    116, 2057, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673034620479*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"4b806c30-e1e5-47ca-8acb-7c15031d5729"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.9381452734796988`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.06185472652030122`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.02874915532973611`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03382253568204248`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2058, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730346247245*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"b5f675c5-2f80-4392-9e97-c7e291d958a0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8895935154688396`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04181785932832619`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8895935154688392`\\\"}], \\\"-\\\", RowBox[{\\\"0.041817859328326185`\\\
+\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.5339599011388373`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.06136162080203866`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2059, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730346289052*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"bcfbf666-c201-41a4-848f-a9e12ff63477"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000082771421`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.47312385369961324`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.0884046216099619`\\\"}], \\\"-\\\", \
+FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.40215527564467124`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.5566162930499072`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+\\\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.07096857344774986`\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"\\\"}]], \\\"-\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\
+\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \
+\\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2060, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730353047749*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"a3d088d4-ebef-4243-915b-5344429e271e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.14999999172285794`\\\
+\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\
+\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.08349243935029395`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.40215527564467124`\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.47312385369961324`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\
+\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP2\\\"}], \\\")\\\"}]}], \\\"+\\\", \\\"x\[Mu]C\\\"}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"7\\\", \\\"\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\
+\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 65, 2061, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730357173789*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"9fd9b0d8-8933-44fa-9529-2f9a16f01e00"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000082771421`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.47312385369961324`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.14999999172285794`\\\"}], \\\
+\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.08349243935029395`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.0884046216099619`\\\"}], \\\"-\\\", \
+FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"20\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\[VeryThinSpace]\\\"}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"\\\"}]]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", RowBox[{\\\
+\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\
+\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2062, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730361882534*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"e9ae4232-bb56-4392-b2ac-88ed5c29fef0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8645681951703688`\\\"}], \\\"-\\\", RowBox[{\\\"0.007529411764705879`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.42118448822027577`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.0470588235294118`\\\", \\\" \
+\\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2063, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730361949553*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"ada05015-fd28-4736-9df3-fdab612a794b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9232697257173081`\\\"}], \\\"-\\\", RowBox[{\\\"0.011698238658891628`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.0084393515621084`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.017746759429668264`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 104, 2064, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567303620102453`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"2f7bb7a7-21b2-4baf-a5df-3c6315691206"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000082771421`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.47312385369961324`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPClinic\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 116, 2065, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730366966878*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"8aaf7a06-9361-4e9b-8fbf-eaa02ba0a4d6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.8500000082771421`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.14999999172285794`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.07096857344774986`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.08349243935029395`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2066, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730367008069*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"3fc798fc-b1ff-4d55-a0f2-0cf4cf5e42eb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8870359263746849`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04143740754118751`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8870359263746845`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.0414374075411875`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.4781153688969564`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.05898379713242196`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2067, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730367050593*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"24e5acb5-3597-466c-9acb-fbe2acf3991e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9203645534915432`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.41923169758356643`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.1793359828313237`\\\"}], \\\"-\\\", \
+FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.3563469429460314`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.455506131774792`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\
+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", FractionBox[\\\"xHN2\\\
+\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"+\\\", \\\"x\
+\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.030833269062541677`\\\"}], \
+\\\"-\\\", FractionBox[RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"100\\\"], \\\"-\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"+\
+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2068, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730373771377*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"0021b427-b2a8-4efb-a356-593508b341c2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.07963544650845678`\\\
+\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\
+\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03627443419122551`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.3563469429460314`\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.41923169758356643`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\
+\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP2\\\"}], \\\")\\\"}]}], \\\"+\\\", \\\"x\[Mu]C\\\"}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\
+\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 65, 2069, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730378149959*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"05812d4c-a718-4b07-b780-a1166b4b3641"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9203645534915432`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.41923169758356643`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.07963544650845678`\\\"}], \\\
+\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03627443419122551`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2070, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730382950515*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"73e74b61-536b-4731-8678-742d3529f09c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8402692138615678`\\\"}], \\\"-\\\", RowBox[{\\\"0.007529411764705871`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.29577534563635954`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.04705882352941179`\\\", \\\" \
+\\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2071, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730383019904*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"33f85656-b833-47ac-bc47-5531bad34f44"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.9203645534915432`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.07963544650845678`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.030833269062541677`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03627443419122551`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2072, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730383481572*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"b60568c8-63b2-42ec-9d18-ebdb8e1e0ba7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8668221754210007`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04174055290096905`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8668221754210007`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04174055290096905`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.42545692119159095`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.06087845563105665`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2073, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730383532432*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"d31aba2f-0b27-454c-b4d3-b1207e772e0d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.7844501875724731`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.3720893822767671`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.1810543460021221`\\\"}], \
+\\\"-\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\
+\"(\\\", RowBox[{RowBox[{\\\"0.316275974935252`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \
+\\\", \\\"xHC2\\\"}], \\\"100\\\"]}], \\\")\\\"}], \\\" \\\", \
+\\\"xPLP2\\\"}], \\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \
+\\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.47433143387755367`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \\\
+\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.0869057438606686`\\\"}], \
+\\\"-\\\", FractionBox[RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"100\\\"], \\\"-\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"+\
+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2074, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567303906991034`*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"f75f234f-0065-4950-aa7e-56fd06a3ebf5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \\!\\(\\*RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]\\).\"", 2, 65, 
+   2075, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730395237733*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"b5422e9b-6cf7-4911-89d0-e0f35cdf3df1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.7844501875724731`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.3720893822767671`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.2155498124275269`\
+\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\
+\\\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.10224205160078657`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2076, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730399996999*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"16980452-f6a0-4edc-864c-6232746fe6f5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8413329624911097`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.00752941176470588`\\\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", \
+RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.31566439636866317`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.04705882352941179`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2077, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730400066742*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"ec353f23-3506-414a-93a7-e35d94c3952c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.88742751480914`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.011370798627461338`\\\", \\\" \\\", \\\"xH3\\\"}], \
+\\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \
+\\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.008437924617486714`\\\"}], \
+\\\"+\\\", RowBox[{\\\"0.02004907215066245`\\\", \\\" \\\", \\\"xH3\\\"}], \\\
+\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\
+\\). The initial region specified may not contain any feasible points. \
+Changing the initial region or specifying explicit initial points may provide \
+a better solution.\"", 2, 104, 2078, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730400222417*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"a34c5924-0346-4aa4-929b-d63c43f80c71"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \
+\\\"xH3\\\"}], \\\"40\\\"], \\\"-\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \
+\\\"-\\\", FractionBox[\\\"xHN2\\\", \\\"10\\\"], \\\"-\\\", RowBox[{RowBox[{\
+\\\"(\\\", RowBox[{RowBox[{\\\"1.1810543460021221`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \
+\\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP3\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"1.1810543460021221`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\" \\\", \
+\\\"xPLP3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\
+\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 104, 2079, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304048659487`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"19a19c1b-c9d0-411e-ad67-e6e0bd8c86c5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.847135533165238`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.038890683136874334`\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \
+\\\"x\[Mu]C\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.8471355331652377`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.03889068313687431`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.020158919194802283`\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.04306676960546444`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"+\\\", \
+RowBox[{\\\"1.0666666666666667`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\). The initial region specified \
+may not contain any feasible points. Changing the initial region or \
+specifying explicit initial points may provide a better solution.\"", 2, 116, 
+   2080, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730405023226*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"9effe067-06b0-4299-87fb-018e356cd9d8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \
+\\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \
+\\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\"}\\\"}]\\).\"", 2, 
+   116, 2081, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730410349741*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"c3668fc7-76e3-4efe-af02-93f97d979cdf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.7844501875724731`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.2155498124275269`\\\", \\\" \\\", RowBox[{\\\"(\
+\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", FractionBox[\\\
+\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.0869057438606686`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.10224205160078657`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2082, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673041038872*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"4eea9895-8a18-4336-abfc-6d484c7c30fb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8636818943143173`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04115894003064055`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8636818943143169`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04115894003064055`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.353103168662923`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.057243375191503326`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2083, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730410431869*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"219bafff-7e5c-404a-a934-2def48bf5c38"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.9802031799409894`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.03851444291609356`\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \
+\\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.019796820059010845`\\\"}], \
+\\\"+\\\", RowBox[{\\\"0.038514442916093544`\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\). The initial region specified may not \
+contain any feasible points. Changing the initial region or specifying \
+explicit initial points may provide a better solution.\"", 2, 51, 2084, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730413086454*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"78183c0f-d9f5-420e-a247-fe0824a0a63a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000000000001`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21647983683890507`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.1311109945893902`\\\"}], \\\"-\\\", \
+FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.18400786131306926`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.2546821609869471`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+\\\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.03247197552583573`\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"\\\"}]], \\\"-\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\
+\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \
+\\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2085, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304181112823`*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"48e94d48-e256-4a92-b9b5-7526ab28d5d1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.9802031799409893`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.04059932334461095`\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \
+\\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.019796820059011067`\\\"}], \
+\\\"+\\\", RowBox[{\\\"0.04059932334461093`\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\). The initial region specified may not \
+contain any feasible points. Changing the initial region or specifying \
+explicit initial points may provide a better solution.\"", 2, 65, 2086, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730418293806*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"68f8fac7-cfdd-4709-bfca-feae73c036c9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.1499999999999999`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03820232414804204`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.18400786131306926`\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.21647983683890507`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\
+\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP2\\\"}], \\\")\\\"}]}], \\\"+\\\", \\\"x\[Mu]C\\\"}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"7\\\", \\\"\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\
+\[Mu]LP\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 65, 2087, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730423629916*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"38f5e4ef-b329-4cdc-94a5-5af203b59e8a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000000000001`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21647983683890507`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.1499999999999999`\\\"}], \
+\\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03820232414804204`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2088, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673043000434*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"19f5d7ae-c717-4fb7-a8a3-2da145d6aa9a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9802031799409894`\\\"}], \\\"-\\\", RowBox[{\\\"0.007529411764705882`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.23488534092793623`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.04705882352941178`\\\", \\\" \
+\\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2089, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730430071746*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"6b9d52fd-3cda-4d0a-96b1-d0b5a8e2f52f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.007062315562965`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.011698238617480906`\\\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", \
+RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.04603204358592039`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.017746759720837498`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 104, 2090, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304301319323`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"f4584a05-6acc-42f0-9a1b-06e84582dea4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9840460031522499`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.0386452914322115`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9840460031522495`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.03864529143221148`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.04242314915940815`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.0415330714513218`\\\", \
+\\\" \\\", \\\"xHC2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 116, 2091, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304301721277`*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"7b90e7e7-6797-412e-9053-9b77653c4120"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.8500000000000001`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.1499999999999999`\\\", \\\" \\\", RowBox[{\\\"(\
+\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", FractionBox[\\\
+\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.03247197552583573`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.03820232414804204`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2092, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730430213458*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"06ad3731-fa30-44c3-aae3-210d3139121a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.0035524904960162`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04143740750578682`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.0035524904960162`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04143740750578682`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.3426162077488135`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.05898379691116762`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2093, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304302570972`*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"e1df4e71-f561-415c-9123-090d811e3ed7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.0119145774179634`\\\"}], \\\"-\\\", RowBox[{\\\"0.012451361867704291`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.011914577417963201`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.012451361867704288`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 149, 2094, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304303028173`*^9},
+ CellLabel->
+  "During evaluation of \
+In[149]:=",ExpressionUUID->"0e4f1047-a3ba-40b2-970e-4bfbd6fe139c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.9910497791051187`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.03899175174482323`\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \
+\\\"x\[Mu]C\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.9910497791051185`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.038991751744823215`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666665`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.008950220894881511`\\\"}], \\\"+\\\", RowBox[{\\\"0.038991751744823215`\
+\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\
+\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\). The initial region specified may not contain any feasible \
+points. Changing the initial region or specifying explicit initial points may \
+provide a better solution.\"", 2, 160, 2095, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730430472538*^9},
+ CellLabel->
+  "During evaluation of \
+In[160]:=",ExpressionUUID->"4bc29248-9568-4f60-993f-2565eb2a1a7e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.8500000000000001`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21647983683890507`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPClinic\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 160, 2096, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730435941362*^9},
+ CellLabel->
+  "During evaluation of \
+In[160]:=",ExpressionUUID->"17355be6-cd96-4200-864f-920095e701fc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.0492501858168108`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04380224194907019`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.0492501858168104`\\\"}], \\\"-\\\", RowBox[{\\\"0.043802241949070175`\\\
+\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666665`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.0492501858168104`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.043802241949070175`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 171, 2097, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730435985573*^9},
+ CellLabel->
+  "During evaluation of \
+In[171]:=",ExpressionUUID->"bd516f87-b040-4de0-82e0-91575dd56ee3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.936360909933807`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.03902812982167613`\\\", \\\" \\\", \\\"xHC2\\\"}], \
+\\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \
+\\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.06363909006619306`\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.039028129821676145`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"+\\\", \
+\\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\
+\"}]}], \\\"}\\\"}]\\). The initial region specified may not contain any \
+feasible points. Changing the initial region or specifying explicit initial \
+points may provide a better solution.\"", 2, 51, 2098, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730438076338*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"d5d093a1-fac4-4601-b146-f16a6f2cd3e2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.6705859552144346`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21107572627824103`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1.149597442959802`\\\"}], \\\"-\\\", \
+FractionBox[\\\"xH3\\\", \\\"5\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.1794143673365049`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\
+\\\"]}], \\\")\\\"}], \\\" \\\", \\\"xPLP2\\\"}], \\\"-\\\", \
+RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.31476311819078423`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+\\\"xPLP2\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.08813428312566171`\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\", \\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\
+\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 51, 2099, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730443376042*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"67e7afa9-43e2-4167-aadd-aa7311db458f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.936360909933807`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.040043738303919524`\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \\\" \\\", \
+\\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.06363909006619306`\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.04004373830391951`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", \
+\\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\
+\"}]}], \\\"}\\\"}]\\). The initial region specified may not contain any \
+feasible points. Changing the initial region or specifying explicit initial \
+points may provide a better solution.\"", 2, 65, 2100, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304436027613`*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"81727d0a-40ee-4594-833a-74056b218dfd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.32941404478556535`\\\
+\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\
+\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.1036873919125432`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.1794143673365049`\\\"}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"100\\\"], \
+\\\"-\\\", RowBox[{FractionBox[\\\"3\\\", \\\"20\\\"], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.21107572627824103`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\
+\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+\\\"xPLP2\\\"}], \\\")\\\"}]}], \\\"+\\\", \\\"x\[Mu]C\\\"}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\
+\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 65, 2101, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304488633213`*^9},
+ CellLabel->
+  "During evaluation of \
+In[65]:=",ExpressionUUID->"151b3e1a-b671-4aef-b62b-b2a496150164"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.6705859552144346`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21107572627824103`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP2\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.32941404478556535`\\\"}], \\\
+\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \
+\\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.1036873919125432`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", FractionBox[\\\"xHN2\\\", \
+\\\"5\\\"]}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"xPLP2\\\"}], \\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"9\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 77, 2102, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730455237301*^9},
+ CellLabel->
+  "During evaluation of \
+In[77]:=",ExpressionUUID->"68a6ca02-808a-4342-b8db-c35190725a36"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.936360909933807`\\\"}], \\\"-\\\", RowBox[{\\\"0.0075294117647058765`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.2511240281245912`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.047058823529411785`\\\", \
+\\\" \\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 91, 2103, 
+   26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304553009453`*^9},
+ CellLabel->
+  "During evaluation of \
+In[91]:=",ExpressionUUID->"02d5f476-4383-4b61-875e-e5545baddd4e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9624389730405724`\\\"}], \\\"-\\\", RowBox[{\\\"0.010804415839193697`\\\
+\", \\\" \\\", \\\"xH3\\\"}], \\\"-\\\", RowBox[{\\\"1.0000000000000002`\\\", \
+\\\" \\\", \\\"x\[Mu]LP\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \
+\\\",\\\", RowBox[{RowBox[{RowBox[{\\\"0.0677626469051481`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.02403145113066933`\\\", \\\" \
+\\\", \\\"xH3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 104, 2104, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730455361436*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"0581854f-3740-4a12-bf25-05d6ebc30d93"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9450887691295767`\\\"}], \\\"-\\\", RowBox[{\\\"0.039324435301341124`\\\
+\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9450887691295764`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.0393244353013411`\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.0945974218199096`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.04577772063338189`\\\", \
+\\\" \\\", \\\"xHC2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]C\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 116, 2105, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730455403235*^9},
+ CellLabel->
+  "During evaluation of \
+In[115]:=",ExpressionUUID->"44882058-be97-4e0b-a567-4b65d6dbbc1d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"0.6705859552144346`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.32941404478556535`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"40\\\"]}], \
+\\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xH1\\\"}], \\\"40\\\"]}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xHN2\\\", \\\"10\\\"]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\
+\\\", RowBox[{RowBox[{RowBox[{\\\"0.08813428312566171`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{FractionBox[\\\"3\\\", \
+\\\"20\\\"], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.1036873919125432`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"17\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"100\\\"]}], \\\
+\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"11\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"20\\\", \\\" \\\", \\\"x\[Mu]LP\\\"}], \\\"27\\\"]}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"xPLP3\\\"}], \
+\\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\
+\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 127, 2106, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.85673045544551*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"eae171f0-7a52-481d-acdf-83e7ffc86284"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nsol", 
+   "\"There are no points that satisfy the constraints \\!\\(\\*RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9547424300566311`\\\"}], \\\"-\\\", RowBox[{\\\"0.040684018765514404`\\\
+\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666668`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.9547424300566307`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04068401876551438`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"0.2623211369796967`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.054275117284464866`\\\", \
+\\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", RowBox[{\\\"1.0666666666666667`\\\", \\\
+\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 138, 2107, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730455493191*^9},
+ CellLabel->
+  "During evaluation of \
+In[138]:=",ExpressionUUID->"9219f4a5-f06d-4706-8623-6f459fdd1bcc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \
+\\\"xH3\\\"}], \\\"40\\\"], \\\"-\\\", FractionBox[\\\"xHC2\\\", \\\"10\\\"], \
+\\\"-\\\", FractionBox[\\\"xHN2\\\", \\\"10\\\"], \\\"-\\\", RowBox[{RowBox[{\
+\\\"(\\\", RowBox[{RowBox[{\\\"1.149597442959802`\\\", \\\"\[VeryThinSpace]\\\
+\"}], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \
+\\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPLP3\\\"}], \\\")\
+\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"1.149597442959802`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\
+\\\", FractionBox[\\\"xH3\\\", \\\"5\\\"]}], \\\")\\\"}]}], \\\" \\\", \
+\\\"xPLP3\\\"}], \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[Equal]\\\", \
+\\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\
+\\\", \\\"x\[Mu]HP\\\", \\\"+\\\", \\\"x\[Mu]LP\\\"}], \\\"\[LessEqual]\\\", \
+\\\"0\\\"}]}], \\\"}\\\"}]\\).\"", 2, 149, 2108, 26668810948636774619, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8567304581427526`*^9},
+ CellLabel->
+  "During evaluation of \
+In[149]:=",ExpressionUUID->"862814d8-160a-49b4-a55d-a3b158447791"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.6705859552144346`\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\"], \\\"+\\\", \
+FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHC2\\\"}], \\\"40\\\"], \\\"-\
+\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.21107572627824103`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHC2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPClinic\\\"}], \
+\\\")\\\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]C\\\", \
+\\\"+\\\", \\\"x\[Mu]HP\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 160, 2109, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730460835784*^9},
+ CellLabel->
+  "During evaluation of \
+In[160]:=",ExpressionUUID->"b83295c2-10ab-4746-8db4-82286f2fe8c6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "incst", 
+   "\"\\!\\(\\*RowBox[{\\\"NMinimize\\\"}]\\) was unable to generate any \
+initial points satisfying the inequality constraints \\!\\(\\*RowBox[{\\\"{\\\
+\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.994926053019291`\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.04245962795510137`\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"-\\\", RowBox[{\\\"0.06666666666666667`\\\", \\\" \\\", \
+\\\"x\[Mu]N\\\"}]}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.9949260530192909`\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.04245962795510135`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"-\\\", \
+RowBox[{\\\"0.06666666666666665`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.005073946980709065`\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.04245962795510135`\\\", \\\" \\\", \\\"xHN2\\\"}], \\\"+\\\", \
+RowBox[{\\\"1.0666666666666667`\\\", \\\" \\\", \\\"x\[Mu]N\\\"}]}], \\\"\
+\[LessEqual]\\\", \\\"0\\\"}]}], \\\"}\\\"}]\\). The initial region specified \
+may not contain any feasible points. Changing the initial region or \
+specifying explicit initial points may provide a better solution.\"", 2, 171, 
+   2110, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730461010755*^9},
+ CellLabel->
+  "During evaluation of \
+In[171]:=",ExpressionUUID->"8a80ab8f-68fe-42c2-b344-b758d07545d0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NMinimize", "nosat", 
+   "\"Obtained solution does not satisfy the following constraints within \
+Tolerance -> \\!\\(\\*RowBox[{\\\"0.001`\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"0.32941404478556535`\\\
+\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{FractionBox[\\\"xH1\\\", \\\"10\\\
+\"], \\\"+\\\", FractionBox[\\\"xH3\\\", \\\"10\\\"]}], \\\")\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{\\\"21\\\", \\\" \\\", \\\"xHN2\\\"}], \
+\\\"40\\\"], \\\"-\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"0.1036873919125432`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", FractionBox[\\\"xHN2\\\", \\\"5\\\"]}], \\\")\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"xPNClinic\\\"}], \\\")\\\
+\"}]}]}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \\\"x\[Mu]HP\\\", \
+\\\"+\\\", \\\"x\[Mu]N\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 171, 2111, 26668810948636774619, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.856730463601384*^9},
+ CellLabel->
+  "During evaluation of \
+In[171]:=",ExpressionUUID->"019d51dc-2003-40e2-9f01-6e9e245ccf18"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6", ",", 
+     RowBox[{"{", "b12", "}"}], ",", "0.24999998931027023`", ",", 
+     "0.448252327548352`", ",", "0.6982523168586222`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "8", ",", 
+     RowBox[{"{", "b12", "}"}], ",", "0.24999998067527085`", ",", 
+     "0.45271854078814244`", ",", "0.7027185214634133`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "b10", ",", 
+     RowBox[{"{", "b10", "}"}], ",", "0.18633821813239143`", ",", 
+     "0.41633255374817313`", ",", "0.6026707718805646`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "b12", ",", 
+     RowBox[{"{", "b10", "}"}], ",", "0.190600116788299`", ",", 
+     "0.38886800526127946`", ",", "0.5794681220495784`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "13", ",", 
+     RowBox[{"{", "a16", "}"}], ",", "0.2641387634887297`", ",", 
+     "0.3952711851100827`", ",", "0.6594099485988124`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "a15", ",", 
+     RowBox[{"{", "a16", "}"}], ",", "0.22412648727173884`", ",", 
+     "0.3970516334700135`", ",", "0.6211781207417524`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.856729526574369*^9, 3.8567302737937326`*^9, 
+  3.856730465300085*^9},
+ CellLabel->
+  "Out[6093]=",ExpressionUUID->"36b2f543-5c2b-4ab1-a604-8bcc67b69413"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Index\"\>", "\<\"Sol in 1st\"\>", "\<\"Sol in 2nd\"\>", "\<\"Obj in \
+1st\"\>", "\<\"Obj in 2nd\"\>", "\<\"Total Obj\"\>"},
+    {"1", "6", 
+     RowBox[{"{", "b12", "}"}], "0.24999998931027023`", "0.448252327548352`", 
+     "0.6982523168586222`"},
+    {"2", "8", 
+     RowBox[{"{", "b12", "}"}], "0.24999998067527085`", 
+     "0.45271854078814244`", "0.7027185214634133`"},
+    {"3", "b10", 
+     RowBox[{"{", "b10", "}"}], "0.18633821813239143`", 
+     "0.41633255374817313`", "0.6026707718805646`"},
+    {"4", "b12", 
+     RowBox[{"{", "b10", "}"}], "0.190600116788299`", "0.38886800526127946`", 
+     "0.5794681220495784`"},
+    {"5", "13", 
+     RowBox[{"{", "a16", "}"}], "0.2641387634887297`", "0.3952711851100827`", 
+     "0.6594099485988124`"},
+    {"6", "a15", 
+     RowBox[{"{", "a16", "}"}], "0.22412648727173884`", "0.3970516334700135`",
+      "0.6211781207417524`"}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.856729526574369*^9, 3.8567302737937326`*^9, 
+  3.856730465303177*^9},
+ CellLabel->
+  "Out[6096]=",ExpressionUUID->"186579ec-f990-4f43-bebe-898ff7d5c412"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.840798812947942*^9, 3.8408152475391483`*^9},
+ CellLabel->"In[76]:=",ExpressionUUID->"0923085c-b071-43db-afa1-ffa988f6bb0c"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"894ff210-3b61-4f80-ae44-e3a3734edeed"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 8532, 258, 784, "Input",ExpressionUUID->"6724e6c8-90d5-4e20-81ac-d4e14d4ea39b"],
+Cell[9115, 282, 2507, 40, 88, "Message",ExpressionUUID->"c66282bf-3bc2-4ec3-849a-d5be86741cbd"],
+Cell[11625, 324, 905, 16, 24, "Message",ExpressionUUID->"818e3e53-a8c1-4c22-b964-9136f729ae82"],
+Cell[12533, 342, 3172, 47, 96, "Message",ExpressionUUID->"13eb8d7b-c337-4dac-a5cf-a6ac4e063fb3"],
+Cell[15708, 391, 1234, 21, 24, "Message",ExpressionUUID->"f33324b3-b6cc-4cf1-805f-5f41be454834"],
+Cell[16945, 414, 2368, 38, 77, "Message",ExpressionUUID->"a8f966fb-5faa-4cb6-b87c-a39626ba4316"],
+Cell[19316, 454, 2001, 33, 77, "Message",ExpressionUUID->"c1c2558a-2908-4bd6-b7d8-658fda76bf33"],
+Cell[21320, 489, 2046, 34, 77, "Message",ExpressionUUID->"8bb7fe6c-28d1-48d7-972a-b91264795a30"],
+Cell[23369, 525, 913, 18, 24, "Message",ExpressionUUID->"795942f1-c769-4e68-a1ad-250c694006be"],
+Cell[24285, 545, 1476, 25, 40, "Message",ExpressionUUID->"e5b2e069-ed9a-489e-92a3-4b35c9814592"],
+Cell[25764, 572, 1285, 23, 40, "Message",ExpressionUUID->"4b806c30-e1e5-47ca-8acb-7c15031d5729"],
+Cell[27052, 597, 2411, 37, 77, "Message",ExpressionUUID->"b5f675c5-2f80-4392-9e97-c7e291d958a0"],
+Cell[29466, 636, 1239, 22, 24, "Message",ExpressionUUID->"bcfbf666-c201-41a4-848f-a9e12ff63477"],
+Cell[30708, 660, 2462, 40, 77, "Message",ExpressionUUID->"a3d088d4-ebef-4243-915b-5344429e271e"],
+Cell[33173, 702, 2003, 33, 77, "Message",ExpressionUUID->"9fd9b0d8-8933-44fa-9529-2f9a16f01e00"],
+Cell[35179, 737, 2775, 45, 77, "Message",ExpressionUUID->"e9ae4232-bb56-4392-b2ac-88ed5c29fef0"],
+Cell[37957, 784, 905, 16, 24, "Message",ExpressionUUID->"ada05015-fd28-4736-9df3-fdab612a794b"],
+Cell[38865, 802, 914, 17, 24, "Message",ExpressionUUID->"2f7bb7a7-21b2-4baf-a5df-3c6315691206"],
+Cell[39782, 821, 1289, 24, 40, "Message",ExpressionUUID->"8aaf7a06-9361-4e9b-8fbf-eaa02ba0a4d6"],
+Cell[41074, 847, 2411, 37, 77, "Message",ExpressionUUID->"3fc798fc-b1ff-4d55-a0f2-0cf4cf5e42eb"],
+Cell[43488, 886, 1237, 22, 24, "Message",ExpressionUUID->"24e5acb5-3597-466c-9acb-fbe2acf3991e"],
+Cell[44728, 910, 2370, 39, 77, "Message",ExpressionUUID->"0021b427-b2a8-4efb-a356-593508b341c2"],
+Cell[47101, 951, 1918, 31, 77, "Message",ExpressionUUID->"05812d4c-a718-4b07-b780-a1166b4b3641"],
+Cell[49022, 984, 2048, 34, 77, "Message",ExpressionUUID->"73e74b61-536b-4731-8678-742d3529f09c"],
+Cell[51073, 1020, 906, 16, 24, "Message",ExpressionUUID->"33f85656-b833-47ac-bc47-5531bad34f44"],
+Cell[51982, 1038, 2412, 37, 77, "Message",ExpressionUUID->"b60568c8-63b2-42ec-9d18-ebdb8e1e0ba7"],
+Cell[54397, 1077, 1239, 22, 24, "Message",ExpressionUUID->"d31aba2f-0b27-454c-b4d3-b1207e772e0d"],
+Cell[55639, 1101, 2368, 38, 77, "Message",ExpressionUUID->"f75f234f-0065-4950-aa7e-56fd06a3ebf5"],
+Cell[58010, 1141, 507, 11, 24, "Message",ExpressionUUID->"b5422e9b-6cf7-4911-89d0-e0f35cdf3df1"],
+Cell[58520, 1154, 2044, 33, 77, "Message",ExpressionUUID->"16980452-f6a0-4edc-864c-6232746fe6f5"],
+Cell[60567, 1189, 911, 18, 24, "Message",ExpressionUUID->"ec353f23-3506-414a-93a7-e35d94c3952c"],
+Cell[61481, 1209, 1133, 19, 42, "Message",ExpressionUUID->"a34c5924-0346-4aa4-929b-d63c43f80c71"],
+Cell[62617, 1230, 1478, 25, 40, "Message",ExpressionUUID->"19a19c1b-c9d0-411e-ad67-e6e0bd8c86c5"],
+Cell[64098, 1257, 1466, 24, 60, "Message",ExpressionUUID->"9effe067-06b0-4299-87fb-018e356cd9d8"],
+Cell[65567, 1283, 643, 13, 24, "Message",ExpressionUUID->"c3668fc7-76e3-4efe-af02-93f97d979cdf"],
+Cell[66213, 1298, 2408, 37, 77, "Message",ExpressionUUID->"4eea9895-8a18-4336-abfc-6d484c7c30fb"],
+Cell[68624, 1337, 1238, 22, 24, "Message",ExpressionUUID->"219bafff-7e5c-404a-a934-2def48bf5c38"],
+Cell[69865, 1361, 1167, 20, 42, "Message",ExpressionUUID->"78183c0f-d9f5-420e-a247-fe0824a0a63a"],
+Cell[71035, 1383, 2464, 40, 77, "Message",ExpressionUUID->"48e94d48-e256-4a92-b9b5-7526ab28d5d1"],
+Cell[73502, 1425, 1166, 20, 42, "Message",ExpressionUUID->"68f8fac7-cfdd-4709-bfca-feae73c036c9"],
+Cell[74671, 1447, 2004, 34, 77, "Message",ExpressionUUID->"38f5e4ef-b329-4cdc-94a5-5af203b59e8a"],
+Cell[76678, 1483, 2046, 34, 77, "Message",ExpressionUUID->"19f5d7ae-c717-4fb7-a8a3-2da145d6aa9a"],
+Cell[78727, 1519, 906, 16, 24, "Message",ExpressionUUID->"6b9d52fd-3cda-4d0a-96b1-d0b5a8e2f52f"],
+Cell[79636, 1537, 916, 18, 24, "Message",ExpressionUUID->"f4584a05-6acc-42f0-9a1b-06e84582dea4"],
+Cell[80555, 1557, 1239, 22, 24, "Message",ExpressionUUID->"7b90e7e7-6797-412e-9053-9b77653c4120"],
+Cell[81797, 1581, 2410, 37, 77, "Message",ExpressionUUID->"06ad3731-fa30-44c3-aae3-210d3139121a"],
+Cell[84210, 1620, 1240, 22, 24, "Message",ExpressionUUID->"e1df4e71-f561-415c-9123-090d811e3ed7"],
+Cell[85453, 1644, 916, 17, 24, "Message",ExpressionUUID->"0e4f1047-a3ba-40b2-970e-4bfbd6fe139c"],
+Cell[86372, 1663, 1464, 23, 60, "Message",ExpressionUUID->"4bc29248-9568-4f60-993f-2565eb2a1a7e"],
+Cell[87839, 1688, 1257, 23, 40, "Message",ExpressionUUID->"17355be6-cd96-4200-864f-920095e701fc"],
+Cell[89099, 1713, 1240, 22, 24, "Message",ExpressionUUID->"bd516f87-b040-4de0-82e0-91575dd56ee3"],
+Cell[90342, 1737, 1165, 20, 42, "Message",ExpressionUUID->"d5d093a1-fac4-4601-b146-f16a6f2cd3e2"],
+Cell[91510, 1759, 2370, 39, 77, "Message",ExpressionUUID->"67e7afa9-43e2-4167-aadd-aa7311db458f"],
+Cell[93883, 1800, 1167, 20, 42, "Message",ExpressionUUID->"81727d0a-40ee-4594-833a-74056b218dfd"],
+Cell[95053, 1822, 1919, 31, 77, "Message",ExpressionUUID->"151b3e1a-b671-4aef-b62b-b2a496150164"],
+Cell[96975, 1855, 2045, 33, 77, "Message",ExpressionUUID->"68a6ca02-808a-4342-b8db-c35190725a36"],
+Cell[99023, 1890, 912, 17, 24, "Message",ExpressionUUID->"02d5f476-4383-4b61-875e-e5545baddd4e"],
+Cell[99938, 1909, 911, 17, 24, "Message",ExpressionUUID->"0581854f-3740-4a12-bf25-05d6ebc30d93"],
+Cell[100852, 1928, 1238, 22, 24, "Message",ExpressionUUID->"44882058-be97-4e0b-a567-4b65d6dbbc1d"],
+Cell[102093, 1952, 2409, 37, 77, "Message",ExpressionUUID->"eae171f0-7a52-481d-acdf-83e7ffc86284"],
+Cell[104505, 1991, 1240, 22, 24, "Message",ExpressionUUID->"9219f4a5-f06d-4706-8623-6f459fdd1bcc"],
+Cell[105748, 2015, 1448, 25, 40, "Message",ExpressionUUID->"862814d8-160a-49b4-a55d-a3b158447791"],
+Cell[107199, 2042, 1257, 23, 40, "Message",ExpressionUUID->"b83295c2-10ab-4746-8db4-82286f2fe8c6"],
+Cell[108459, 2067, 1465, 24, 60, "Message",ExpressionUUID->"8a80ab8f-68fe-42c2-b344-b758d07545d0"],
+Cell[109927, 2093, 1256, 22, 40, "Message",ExpressionUUID->"019d51dc-2003-40e2-9f01-6e9e245ccf18"],
+Cell[111186, 2117, 1365, 31, 56, "Output",ExpressionUUID->"36b2f543-5c2b-4ab1-a604-8bcc67b69413"],
+Cell[112554, 2150, 1221, 29, 141, "Output",ExpressionUUID->"186579ec-f990-4f43-bebe-898ff7d5c412"]
+}, Open  ]],
+Cell[113790, 2182, 171, 2, 30, "Input",ExpressionUUID->"0923085c-b071-43db-afa1-ffa988f6bb0c"]
+}
+]
+*)
+
